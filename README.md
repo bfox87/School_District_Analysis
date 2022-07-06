@@ -1,59 +1,99 @@
 # School District Analysis
 
-## Analysis Overview:
+## Overview:
 ### Background:
-Maria, the chief data scientist for City School System, is needing assistance in analyzing school funding and standardized test data. The task is to aggregate the data to showcase trends in school performance. This will in turn help the school board and superintendent make decisions regarding school budgeting allotments. To further complicate matters, the school board believes there is evidence of academic dishonesty with the nineth grade reading and math scores at Thomas High School.
+Maria, the chief data scientist for City School System, is needing assistance in analyzing school funding and standardized test data. The task is to aggregate the data to showcase trends in school performance. This will in turn help the school board and superintendent make decisions regarding school budgeting allotments. To further complicate matters, the school board believes there is evidence of academic dishonesty with the ninth grade reading and math scores at Thomas High School.
 
 ### Purpose:
 The purpose of this project is to cleanse the dataset of the potentially altered reading and math grades at Thomas High School and then repeat the school district analysis done earlier. Any changes to results will then be noted.
 
 ## Results:
 - District Summary Effects:
-    - Jefferson: 38,855 votes (10.5% of total)
-    - Denver: 306,055 votes (82.8% of total)
-    - Arap
+    - The large size of the school district at 39,170 students makes the effects of removing of 461 ninth grade math and reading scores at Thomas High fairly small.
+    - The average math score dropped slightly from 79.0 to 78.9 while the reading score change was too small to register at one decimal place.
+    - The pass rates did drop with the removal of the Thomas ninth grade scores. However, these drops were quite small due to the dilution within the large district.
+        - % Passing Math: 75.0 down to 74.8
+        - % Passing Reading: 85.8 to 85.7
+        - % Passing Overall: 65.2 to 64.9
+    - Before replacement:
+     
+    ![School_Type_Scores_before_replace](https://github.com/bfox87/School_District_Analysis/blob/main/Resources/School_Type_Scores_before_replace.PNG)
+    
+    - After replacing ninth grade scores:
+    
+    ![School_Type_Scores_after_replace](https://github.com/bfox87/School_District_Analysis/blob/main/Resources/School_Type_Scores_after_replace.PNG)
+    
 - School Summary Effects:
-    - Jefferson: 38,855 votes (10.5% of total)
-    - Denver: 306,055 votes (82.8% of total)
-    - Arapahoe: 24,801 votes (6.7% of total)
+    - The removal of all ninth grade math and reading scores at Thomas High caused a drop of between 26-27% in math, reading, and overall pass rates at the school. No other school's results were affected.
+        - % Passing Math: 93.3 down to 66.9
+        - % Passing Reading: 97.3 to 69.7
+        - % Passing Overall: 90.9 to 65.1
+    - These drops are due to the removal of all 461 ninth grade results. 461 is 28% of Thomas High's 1,635 total students. These pass rates are still be calculated against school total number of students, so it follows we should see these approx drops in pass rates. Only the scores were made null, not the students themselves.
+    - Thomas High average reading score dropped slightly from 83.42 to 83.35. The average math score went up slightly from 83.85 to 83.9.
+        - the average math and reading scores of 10th through 12th graders at Thomas High was very close to that of the removed ninth graders. This is why the averages for the school changed only slightly.
+        - Also, the ninth grade scores were made null, not zero, so as to not dramatically the averages.  
+    - Before replacement:
+     
+    ![School_Type_Scores_before_replace](https://github.com/bfox87/School_District_Analysis/blob/main/Resources/School_Type_Scores_before_replace.PNG)
+    
+    - After replacing ninth grade scores:
+    
+    ![School_Type_Scores_after_replace](https://github.com/bfox87/School_District_Analysis/blob/main/Resources/School_Type_Scores_after_replace.PNG)
+
 - Thomas High School relative peformance changes:
-    - Vote count: 272,892
-    - Perc
+    - As seen in the screenshots above, before the exclusion of ninth grade test results, Thomas High's overall pass rate of 91% was good enough for second best in the district. With removal of the ninth grade reading and math scores, the school drops to eighth place with a 65% overall passing rate.
+    
 - Effect on math and reading scores by grade:
-    - Charles Casper Stockham: 85,213 votes (23.0% of total)
-    - Diana DeGette: 272,892 votes (73.8% of total)
-    - Raymon Anthony Doane: 11,606 votes (3.1% of total)
+    - A null or "nan" value is now present for Thomas High ninth grade reading and math scores.
+    - The only scores affected by removal are the ninth grade scores at Thomas High. All other schools for ninth grade are unaffected as are the 10th-12th grade scores at all schools, including Thomas High.
+    - After replacing ninth grade scores on math scores (just one screenshot for space purposes):
+
+![School_Type_Scores_before_replace](https://github.com/bfox87/School_District_Analysis/blob/main/Resources/School_Type_Scores_before_replace.PNG)
+
 - Effect on scores by school spending:
-    - Vote count: 272,892
-    - Percentage of total votes: 73.8%
+    - Thomas High has a budget per student of $638 ($1,043,130 budget / 1,635 students). Therefore, the schools falls into the $631-$645 spending bin. As such, changes are only seen in this spending category. 
+    - Around a seven point drop in the percentage of students passing math, reading, and both is seen.
+        - % Passing Math: 73 down to 67
+        - % Passing Reading: 84 to 77
+        - % Passing Overall: 63 to 56
+     - Changes in avg reading/math scores much too small to register with the rounding to one decimal place.
+     - Before replacement:
+     
+    ![School_Type_Scores_before_replace](https://github.com/bfox87/School_District_Analysis/blob/main/Resources/School_Type_Scores_before_replace.PNG)
+    
+    - After replacing ninth grade scores:
+    
+    ![School_Type_Scores_after_replace](https://github.com/bfox87/School_District_Analysis/blob/main/Resources/School_Type_Scores_after_replace.PNG)
+    
 - Effect on scores by school size:
-    - Vote count: 272,892
-    - Percentage of total votes: 73.8%
+    - With 1,635 students, Thomas High falls into a Medium school size so changes only seen in this category.
+    - Around a six point drop in the percentage of students passing math, reading, and both
+        - % Passing Math: 94 down to 88
+        - % Passing Reading: 97 to 91
+        - % Passing Overall: 91 to 85
+     - Changes in avg reading/math scores much too small to register with the rounding to one decimal place.
+     - Before replacement:
+     
+    ![School_Type_Scores_before_replace](https://github.com/bfox87/School_District_Analysis/blob/main/Resources/School_Type_Scores_before_replace.PNG)
+    
+    - After replacing ninth grade scores:
+    
+    ![School_Type_Scores_after_replace](https://github.com/bfox87/School_District_Analysis/blob/main/Resources/School_Type_Scores_after_replace.PNG)
+    
 - Effect on scores by school type:
     - Thomas High is categorized as a Charter school so changes only see in this row.
     - Close to a four point drop in the percentage of students passing math, reading, and both
         - % Passing Math: 94 down to 90
         - % Passing Reading: 97 to 93
         - % Passing Overall: 90 to 87
+     - Changes in avg reading/math scores much too small to register with the rounding to one decimal place.
      - Before replacement:
-    ![Terminal_Output](https://github.com/bfox87/Election_Analysis/blob/main/analysis/Terminal_Output.PNG)
-    - After replacing nineth grade scores:
-    ![Terminal_Output](https://github.com/bfox87/Election_Analysis/blob/main/analysis/Terminal_Output.PNG)
-
-
-The results above have been printed to a text file in the analysis folder, but a screenshot of the Python terminal output has been pasted below for confirmation:
-
-
-
+     
+    ![School_Type_Scores_before_replace](https://github.com/bfox87/School_District_Analysis/blob/main/Resources/School_Type_Scores_before_replace.PNG)
+    
+    - After replacing nieth grade scores:
+    
+    ![School_Type_Scores_after_replace](https://github.com/bfox87/School_District_Analysis/blob/main/Resources/School_Type_Scores_after_replace.PNG)
+    
 ## Summary:
-
-To begin, Secondly. Third. Fourth and finally, his Python script has resulted in an accurate, efficient audit of this precinct's congressional election results. However, the real benefit will come from its use in future elections. The script can be modified to summarize results in a variety of different ways, as detailed below.
-
-#### Snippets of code needed for future uses:
-- In either of these examples, the original Python code can be adjusted. To begin, an analyst will need to initialize an empty list and dictionary to hold the names (i.e. precinct or vote method) and votes cast as values. Example code pasted below is from the county analysis. 
-```
-# Create a county list and county votes dictionary.
-county_options = []
-county_votes = {}
-```
-
+To begin, replacing Thomas High ninth grade math and reading scores with NaN's caused pass rates to decline (% passing math, % passing reading, and $ passing both/overall). The rate of decline depended on the size of the analysis. Looking at large categories like the entire district or by school type, the effect was diluted by all the other student/school scores that were never changed. The drop in pass rates is more pronounced when there is a smaller dataset. **Secondly**, when comparing against other schools, this decline in overall pass rates caused Thomas High School to drop dramatically in the rankings, from second place in the district to eighth. This change from one of the top schools to middle of the pack could have dramatic impacts on the school going forward. **Third**, the average test scores did not change by much, even when looking at just Thomas High alone. This is because the test scores for Thomas' 10th - 12th grades were very similar to those of the removed ninth graders. **Finally**, we could replace the Thomas ninth grade NaN's with the school's 10th -12th grade results. Including potentially altered ninth grade results is not advised, but replacing with null values makes the school's pass rates look worse than it really did. Using these 10th -12th grade results instead accomplishes the goal of removing potentially corrupt data, but keeps the pass rates near where they likely should be.
